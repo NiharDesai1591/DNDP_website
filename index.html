@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DNDP Consultants — Business & Manufacturing Excellence</title>
+<meta name="description" content="Gujarat-rooted consultants specialising in manufacturing excellence, business turnaround, M&A strategy and corporate finance for SMEs and MSMEs."/>
+<style>
+:root{
+  --navy:#0d1b3e;--navy2:#122354;--navy3:#1a3068;
+  --blue:#3a6eb5;--blue2:#5a8fd4;--blue3:#c8dff4;
+  --white:#ffffff;--off:#f4f6f9;--bdr:#dde3ee;
+  --black:#0a0f1e;--grey:#4a5568;
+  --f:Verdana,Geneva,Tahoma,sans-serif;
+  --ease:cubic-bezier(.22,.68,0,1.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f);font-size:15px;background:var(--white);color:var(--black);line-height:1.65;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--f);border:none;background:none}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px}
+.nav-logo{font-size:17px;font-weight:700;color:var(--white);letter-spacing:.5px}
+.nav-logo span{color:var(--blue2)}
+.ham{display:flex;flex-direction:column;gap:5px;padding:8px;-webkit-tap-highlight-color:transparent}
+.ham span{display:block;width:22px;height:2px;background:var(--white);border-radius:1px;transition:all .28s var(--ease)}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-links{display:none}
+.nav-cta-d{display:none}
+
+/* DRAWER */
+#drawer{position:fixed;inset:56px 0 0 0;z-index:199;background:var(--navy);transform:translateX(100%);transition:transform .32s var(--ease);display:flex;flex-direction:column;padding:28px 24px 40px;overflow-y:auto}
+#drawer.open{transform:translateX(0)}
+.drawer-nav a{display:block;font-size:22px;font-weight:700;color:var(--white);padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);transition:color .2s}
+.drawer-nav a:active{color:var(--blue2)}
+.drawer-cta{margin-top:auto;padding-top:32px}
+.drawer-call{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--white);color:var(--navy);font-size:16px;font-weight:700;padding:16px;border-radius:8px;margin-bottom:12px;-webkit-tap-highlight-color:transparent}
+.drawer-email{font-size:12px;color:rgba(255,255,255,.4);text-align:center}
+
+/* HERO */
+#hero{min-height:100svh;background:var(--navy);padding:96px 20px 48px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-deco{position:absolute;top:50%;right:-10px;transform:translateY(-55%);font-size:min(52vw,240px);font-weight:700;color:rgba(255,255,255,.025);letter-spacing:-4px;pointer-events:none;user-select:none;line-height:1}
+.hero-bar{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent,var(--blue) 25%,var(--blue) 75%,transparent);opacity:.5}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:18px}
+.hero-tag::before{content:'';width:18px;height:2px;background:var(--blue2)}
+.hero-h1{font-size:32px;font-weight:700;color:#ffffff;line-height:1.15;margin-bottom:16px}
+.hero-h1 em{font-style:italic;color:#ffffff}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:28px}
+.hero-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--white);color:var(--navy);font-size:15px;font-weight:700;padding:16px;border-radius:8px;margin-bottom:10px;-webkit-tap-highlight-color:transparent;transition:background .15s}
+.hero-cta:active{background:var(--blue3)}
+.hero-ghost{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;color:rgba(255,255,255,.65);font-size:14px;font-weight:700;padding:14px;border:1.5px solid rgba(255,255,255,.15);border-radius:8px;margin-bottom:36px;-webkit-tap-highlight-color:transparent}
+.hero-ghost:active{border-color:var(--white);color:var(--white)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+.hstat{padding-right:10px}
+.hstat+.hstat{border-left:1px solid rgba(255,255,255,.08);padding-left:10px}
+.hstat-n{display:block;font-size:19px;font-weight:700;color:#ffffff;line-height:1;margin-bottom:5px}
+.hstat-l{font-size:9px;color:rgba(255,255,255,.4);line-height:1.4}
+
+/* SECTIONS */
+.sec{padding:52px 20px}
+.sec-dark{background:var(--navy)}
+.sec-light{background:var(--off)}
+.sec-white{background:var(--white)}
+.s-tag{display:block;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.sec-dark .s-tag{color:var(--blue2)}
+.s-h2{font-size:22px;font-weight:700;color:var(--black);line-height:1.22;margin-bottom:12px}
+.sec-dark .s-h2{color:#ffffff}
+.s-lead{font-size:14px;color:var(--grey);line-height:1.75;margin-bottom:28px}
+.sec-dark .s-lead{color:rgba(255,255,255,.55)}
+
+/* PHILOSOPHY */
+.ethos-box{background:var(--navy2);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:22px 18px;margin-bottom:24px}
+.ethos-box p{font-size:14px;font-style:italic;color:#ffffff;line-height:1.75}
+.ethos-box p strong{font-style:normal;font-weight:700;color:#ffffff}
+.ethos-attr{margin-top:10px;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:1.5px;text-transform:uppercase}
+.usp-list{display:flex;flex-direction:column;gap:12px}
+.usp-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px}
+.usp-ico{min-width:38px;height:38px;border-radius:10px;background:var(--navy3);display:flex;align-items:center;justify-content:center}
+.usp-ico svg{width:18px;height:18px;color:var(--blue2)}
+.usp-t{font-size:13px;font-weight:700;color:#ffffff;margin-bottom:4px}
+.usp-d{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+
+/* EXPERTISE */
+.exp-list{display:flex;flex-direction:column;gap:10px}
+.exp-card{background:var(--white);border:1px solid var(--bdr);border-radius:10px;overflow:hidden}
+.exp-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:18px 16px;min-height:68px;text-align:left;-webkit-tap-highlight-color:transparent}
+.exp-btn-l{display:flex;align-items:center;gap:12px}
+.exp-num{font-size:17px;font-weight:700;color:var(--blue);min-width:26px}
+.exp-name{font-size:14px;font-weight:700;color:var(--black);line-height:1.3}
+.exp-chev{min-width:22px;width:22px;height:22px;color:var(--grey);flex-shrink:0;transition:transform .3s var(--ease)}
+.exp-card.open .exp-chev{transform:rotate(180deg)}
+.exp-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.exp-card.open .exp-body{max-height:700px}
+.exp-inner{padding:0 16px 20px;border-top:1px solid var(--bdr)}
+.exp-inner p{font-size:13px;color:var(--grey);line-height:1.75;margin-top:14px}
+.pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.pill{font-size:11px;font-weight:700;background:var(--navy);color:var(--blue3);padding:5px 12px;border-radius:20px}
+
+/* PROJECTS */
+.proj-list{display:flex;flex-direction:column;gap:10px}
+.proj-card{background:var(--white);border:1px solid var(--bdr);border-radius:10px;overflow:hidden}
+.proj-btn{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;width:100%;padding:18px 16px;text-align:left;-webkit-tap-highlight-color:transparent}
+.proj-ind{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
+.proj-title{font-size:14px;font-weight:700;color:var(--black);line-height:1.3}
+.proj-badge{flex-shrink:0;font-size:10px;font-weight:700;background:var(--off);color:var(--grey);padding:4px 10px;border-radius:20px;white-space:nowrap;margin-top:2px}
+.proj-body{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.proj-card.open .proj-body{max-height:500px}
+.proj-inner{padding:0 16px 20px;border-top:1px solid var(--bdr)}
+.proj-inner p{font-size:13px;color:var(--grey);line-height:1.75;margin-top:14px}
+.proj-result{display:flex;gap:10px;align-items:flex-start;background:var(--navy);border-radius:8px;padding:14px;margin-top:14px}
+.proj-result-ico{font-size:18px;color:var(--blue2);flex-shrink:0;line-height:1}
+.proj-result p{font-size:13px;color:var(--blue3);line-height:1.65;margin:0}
+
+/* TEAM */
+.team-list{display:flex;flex-direction:column;gap:14px}
+.team-card{background:var(--white);border:1px solid var(--bdr);border-radius:12px;padding:22px 18px}
+.team-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.team-av{min-width:50px;width:50px;height:50px;border-radius:12px;background:var(--navy);color:var(--blue2);font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid rgba(90,143,212,.25)}
+.team-name{font-size:16px;font-weight:700;color:var(--black);margin-bottom:3px}
+.team-role{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue)}
+.team-bio{font-size:13px;color:var(--grey);line-height:1.75;margin-bottom:16px}
+.team-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.team-note{font-size:11px;color:var(--grey);font-style:italic}
+.li-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#0a66c2;background:rgba(10,102,194,.07);border:1px solid rgba(10,102,194,.15);padding:6px 12px;border-radius:6px;opacity:.6;cursor:default}
+.li-badge svg{width:13px;height:13px}
+
+/* CONTACT */
+.cta-phone{display:flex;align-items:center;gap:16px;background:var(--white);border-radius:12px;padding:20px 18px;margin-bottom:12px;-webkit-tap-highlight-color:transparent;border:2px solid var(--white);transition:border-color .2s}
+.cta-phone:active{border-color:var(--blue2)}
+.cta-ph-ico{min-width:46px;height:46px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.cta-ph-ico svg{width:20px;height:20px;color:var(--white)}
+.cta-ph-lbl{font-size:10px;color:var(--grey);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.cta-ph-num{font-size:18px;font-weight:700;color:var(--navy)}
+.cta-ph-sub{font-size:11px;color:var(--grey);margin-top:2px}
+.cta-ph-arr{margin-left:auto;font-size:20px;color:var(--blue)}
+.cta-email{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:16px;margin-bottom:20px}
+.cta-em-ico{min-width:40px;height:40px;background:var(--navy3);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.cta-em-ico svg{width:18px;height:18px;color:var(--blue2)}
+.cta-em-lbl{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.cta-em-val{font-size:13px;font-weight:700;color:var(--white)}
+.cta-addr{font-size:12px;color:rgba(255,255,255,.35);line-height:1.75;margin-bottom:28px}
+.f-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:22px 18px}
+.f-grp{margin-bottom:14px}
+.f-lbl{display:block;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:7px}
+.f-ctrl{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:13px 14px;font-family:var(--f);font-size:14px;color:var(--white);transition:border-color .2s;-webkit-appearance:none}
+.f-ctrl:focus{outline:none;border-color:var(--blue2)}
+.f-ctrl::placeholder{color:rgba(255,255,255,.25)}
+select.f-ctrl option{background:var(--navy);color:var(--white)}
+textarea.f-ctrl{resize:vertical;min-height:100px}
+.f-submit{width:100%;background:var(--white);color:var(--navy);font-size:15px;font-weight:700;padding:17px;border-radius:8px;margin-top:4px;-webkit-tap-highlight-color:transparent;transition:background .15s}
+.f-submit:active{background:var(--blue3)}
+
+/* FOOTER */
+footer{background:#080f28;padding:32px 20px;border-top:1px solid rgba(255,255,255,.07)}
+.foot-logo{font-size:18px;font-weight:700;color:var(--white);margin-bottom:6px}
+.foot-sub{font-size:12px;color:rgba(255,255,255,.3);margin-bottom:4px}
+.foot-copy{font-size:11px;color:rgba(255,255,255,.2);margin-top:12px}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.r.in{opacity:1;transform:none}
+
+/* ── DESKTOP 768px+ ── */
+@media(min-width:768px){
+  body{font-size:16px}
+  .ham{display:none}
+  .nav-links{display:flex;list-style:none;gap:24px}
+  .nav-links a{font-size:13px;color:rgba(255,255,255,.7);transition:color .2s}
+  .nav-links a:hover{color:var(--white)}
+  .nav-cta-d{display:inline-flex;align-items:center;font-size:13px;font-weight:700;color:var(--navy);background:var(--white);padding:9px 20px;border-radius:6px;transition:background .2s}
+  .nav-cta-d:hover{background:var(--blue3)}
+  .sec{padding:80px 40px}
+  .container-d{max-width:960px;margin:0 auto}
+  #hero{padding:120px 60px 72px}
+  .hero-h1{font-size:52px;margin-bottom:20px}
+  .hero-sub{font-size:15px;max-width:520px}
+  .hero-cta,.hero-ghost{width:auto;display:inline-flex;margin-right:12px;margin-bottom:0}
+  .hero-cta{padding:16px 28px}
+  .hero-ghost{padding:16px 28px}
+  .hero-btns-wrap{display:flex;align-items:center;gap:12px;margin-bottom:48px}
+  .hstat-n{font-size:24px}
+  .hstat-l{font-size:10px}
+  .s-h2{font-size:30px}
+  .team-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .usp-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .contact-cols{display:grid;grid-template-columns:300px 1fr;gap:32px;align-items:start}
+  footer{display:flex;justify-content:space-between;align-items:flex-start;padding:40px 60px}
+  .foot-copy{margin-top:8px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">DNDP <span>Consultants</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Who We Are</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta-d">Talk to us</a>
+    <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div id="drawer" aria-hidden="true">
+  <nav class="drawer-nav">
+    <a href="#about"     onclick="closeDrawer()">Who We Are</a>
+    <a href="#expertise" onclick="closeDrawer()">Expertise</a>
+    <a href="#projects"  onclick="closeDrawer()">Projects</a>
+    <a href="#team"      onclick="closeDrawer()">Team</a>
+    <a href="#contact"   onclick="closeDrawer()">Contact</a>
+  </nav>
+  <div class="drawer-cta">
+    <a href="tel:+919924655322" class="drawer-call">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +91 99246 55322
+    </a>
+    <div class="drawer-email">dndpconsultants@gmail.com</div>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="hero-bar"></div>
+  <div class="hero-deco">DNDP</div>
+  <div class="hero-content">
+    <div class="hero-tag">Business &amp; Manufacturing Consultants</div>
+    <h1 class="hero-h1">Good businesses<br>deserve to <em>thrive.</em></h1>
+    <p class="hero-sub">We are a Gujarat-rooted consulting team — from the same ecosystem, the same supply chains, the same market realities. When you work with us, you gain decades of real-world experience and a network built from the ground up.</p>
+    <div class="hero-btns-wrap">
+      <a href="#contact" class="hero-cta">Talk to us &rarr;</a>
+      <a href="#expertise" class="hero-ghost">See what we do &darr;</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">&#8377;200Cr+</span><span class="hstat-l">Largest project managed</span></div>
+      <div class="hstat"><span class="hstat-n">40+ yrs</span><span class="hstat-l">Combined expertise</span></div>
+      <div class="hstat"><span class="hstat-n">5+</span><span class="hstat-l">Industries served</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="sec sec-dark">
+  <div class="container-d">
+    <span class="s-tag r">Our Philosophy</span>
+    <h2 class="s-h2 r">We believe good people and good businesses should thrive.</h2>
+    <p class="s-lead r">Money is about maintaining respect — what we really do is partner with founders, companies and administrators who deserve to grow, and help them do exactly that.</p>
+    <div class="ethos-box r">
+      <p>"If there is something we can do that can help a founder, a company, or even an administrator in their journey — <strong>we do it.</strong> It's what we like to do. We respect ethics, environment and society, and we believe businesses that do the same deserve every advantage."</p>
+      <div class="ethos-attr">— The DNDP founding principle</div>
+    </div>
+    <div class="usp-list">
+      <div class="usp-item r">
+        <div class="usp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="usp-t">Deep local ecosystem knowledge</div><div class="usp-d">We've worked within Gujarat's vendor, investor and compliance networks for decades. We don't need to learn your world — we already live in it.</div></div>
+      </div>
+      <div class="usp-item r">
+        <div class="usp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="7" r="3"/><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M14 7H10M7 14V10M14 17H10"/></svg></div>
+        <div><div class="usp-t">Reference and partner rich</div><div class="usp-d">Our network of trusted vendors, banks, legal partners and industry contacts becomes your network the moment you work with us.</div></div>
+      </div>
+      <div class="usp-item r">
+        <div class="usp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><div class="usp-t">Hands-on, not hands-off</div><div class="usp-d">We deploy our team on the ground. We speak to your workers. We sit with your banks. Advice without execution is just talk.</div></div>
+      </div>
+      <div class="usp-item r">
+        <div class="usp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div><div class="usp-t">Ethics before invoice</div><div class="usp-d">We will tell you when something won't work. We will advise against a loan if it's not right. Trust is our only lasting asset.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise" class="sec sec-light">
+  <div class="container-d">
+    <span class="s-tag r">What We Do</span>
+    <h2 class="s-h2 r">Five areas where we make a real difference.</h2>
+    <p class="s-lead r">We work across the full lifecycle of a manufacturing or trading business — from setting one up to turning it around, from raising capital to navigating legal distress.</p>
+    <div class="exp-list">
+      <div class="exp-card r" data-exp>
+        <button class="exp-btn" onclick="toggleExp(this)" aria-expanded="false">
+          <div class="exp-btn-l"><span class="exp-num">01</span><span class="exp-name">Holistic Business Setup</span></div>
+          <svg class="exp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exp-body"><div class="exp-inner">
+          <p>When people want to start a new manufacturing business, they often don't know where to begin. We guide founders through the full journey — from advising whether a business is viable, to capital structuring, banking relationships, and eventually setting up the manufacturing unit itself.</p>
+          <p>We don't just give a plan. We walk alongside you — from the first idea to the first day of production.</p>
+          <div class="pill-row"><span class="pill">Feasibility &amp; viability</span><span class="pill">Capital structuring</span><span class="pill">Plant setup</span><span class="pill">Banking &amp; compliance</span></div>
+        </div></div>
+      </div>
+      <div class="exp-card r" data-exp>
+        <button class="exp-btn" onclick="toggleExp(this)" aria-expanded="false">
+          <div class="exp-btn-l"><span class="exp-num">02</span><span class="exp-name">Business Turnaround &amp; Stressed Assets</span></div>
+          <svg class="exp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exp-body"><div class="exp-inner">
+          <p>Companies come to us with all kinds of problems — low production, quality failures, productivity slumps, labour friction. We send our team on the ground, understand the process, speak to the workforce, and get things moving. We have doubled productivity in under a week.</p>
+          <p>We also worked with a hospital burning cash, facing eviction, with no accounting or documentation. Over 12 months we restructured their banking, negotiated expenses, secured a loan, and restructured the board. Revenue doubled.</p>
+          <div class="pill-row"><span class="pill">2x productivity in &lt;1 week</span><span class="pill">Labour management</span><span class="pill">Corporate restructuring</span><span class="pill">Banking negotiations</span></div>
+        </div></div>
+      </div>
+      <div class="exp-card r" data-exp>
+        <button class="exp-btn" onclick="toggleExp(this)" aria-expanded="false">
+          <div class="exp-btn-l"><span class="exp-num">03</span><span class="exp-name">Applied Chemical Sciences</span></div>
+          <svg class="exp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exp-body"><div class="exp-inner">
+          <p>Our PhD material scientist identifies where your current process is generating waste or under-utilised byproducts, and redesigns it to create new saleable products or significantly reduce wastage. This is applied science on the factory floor — with direct commercial impact.</p>
+          <div class="pill-row"><span class="pill">New product development</span><span class="pill">Process optimisation</span><span class="pill">Waste reduction</span><span class="pill">Agro-industrial innovation</span></div>
+        </div></div>
+      </div>
+      <div class="exp-card r" data-exp>
+        <button class="exp-btn" onclick="toggleExp(this)" aria-expanded="false">
+          <div class="exp-btn-l"><span class="exp-num">04</span><span class="exp-name">Corporate Banking &amp; Finance</span></div>
+          <svg class="exp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exp-body"><div class="exp-inner">
+          <p>We help companies understand their true capital requirements and navigate bank relationships efficiently. We don't always recommend raising capital — sometimes the honest advice is that the business needs to change first. We'll tell you that plainly.</p>
+          <p>When capital is the right move, we work on both sides: preparing the business case and making the argument to the bank. We understand what lenders look for.</p>
+          <div class="pill-row"><span class="pill">Loan structuring</span><span class="pill">Bank negotiations</span><span class="pill">Capital assessment</span><span class="pill">Cashflow planning</span></div>
+        </div></div>
+      </div>
+      <div class="exp-card r" data-exp>
+        <button class="exp-btn" onclick="toggleExp(this)" aria-expanded="false">
+          <div class="exp-btn-l"><span class="exp-num">05</span><span class="exp-name">NPA, NCLT &amp; DRT Process Management</span></div>
+          <svg class="exp-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="exp-body"><div class="exp-inner">
+          <p>When businesses face NPA classifications, insolvency proceedings at the NCLT, or debt recovery at the DRT, the stakes are high and the process is complex. We have experience navigating all three — helping businesses and creditors understand their options and reach workable resolutions alongside legal counsel.</p>
+          <div class="pill-row"><span class="pill">NPA resolution</span><span class="pill">NCLT proceedings</span><span class="pill">DRT representation</span><span class="pill">Insolvency management</span></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="sec sec-white">
+  <div class="container-d">
+    <span class="s-tag r">Track Record</span>
+    <h2 class="s-h2 r">Work we've delivered on the ground.</h2>
+    <p class="s-lead r">These are not brochure case studies. These are projects where our team was present, responsible, and accountable for outcomes.</p>
+    <div class="proj-list">
+      <div class="proj-card r" data-proj>
+        <button class="proj-btn" onclick="toggleProj(this)" aria-expanded="false">
+          <div><div class="proj-ind">Healthcare · Ahmedabad</div><div class="proj-title">Sarv Hospital — Full Business Turnaround</div></div>
+          <span class="proj-badge">Turnaround</span>
+        </button>
+        <div class="proj-body"><div class="proj-inner">
+          <p>A hospital approached us burning cash, on the verge of eviction, with no proper accounting or documentation and no clarity on shareholding or board authority.</p>
+          <p>We deployed in an interim management capacity — established banking relationships, negotiated rent and vendor payments, restructured cashflow, secured a loan, and completed a full corporate restructuring of shareholding.</p>
+          <div class="proj-result"><span class="proj-result-ico">&#8593;</span><p>Revenue doubled within 12 months. Nearly at breakeven with stable banking, clear ownership, and structured management in place.</p></div>
+        </div></div>
+      </div>
+      <div class="proj-card r" data-proj>
+        <button class="proj-btn" onclick="toggleProj(this)" aria-expanded="false">
+          <div><div class="proj-ind">Chemical · Environmental · Gujarat</div><div class="proj-title">CETP — Common Effluent Treatment Plant</div></div>
+          <span class="proj-badge">Operations</span>
+        </button>
+        <div class="proj-body"><div class="proj-inner">
+          <p>Engaged on the operational and technical design of a Common Effluent Treatment Plant for an industrial cluster. Co-ordinated across multiple businesses, regulatory bodies, and technical specifications for environmental compliance.</p>
+          <div class="proj-result"><span class="proj-result-ico">&#8593;</span><p>Operational plant delivering environmental compliance for a multi-business industrial cluster in Gujarat.</p></div>
+        </div></div>
+      </div>
+      <div class="proj-card r" data-proj>
+        <button class="proj-btn" onclick="toggleProj(this)" aria-expanded="false">
+          <div><div class="proj-ind">Agro-Industrial · Materials Science</div><div class="proj-title">Green Silica — India's First Commercial Green Silica Plant</div></div>
+          <span class="proj-badge">Plant Build</span>
+        </button>
+        <div class="proj-body"><div class="proj-inner">
+          <p>Built and operationalised India's first commercial green silica manufacturing facility — producing export-grade silica from rice husk, a zero-waste circular economy model. Everything from raw material procurement logistics to export-standard quality certification.</p>
+          <div class="proj-result"><span class="proj-result-ico">&#8593;</span><p>A pioneering facility producing export-grade silica to global regulatory standards from an agricultural byproduct — zero industrial waste.</p></div>
+        </div></div>
+      </div>
+      <div class="proj-card r" data-proj>
+        <button class="proj-btn" onclick="toggleProj(this)" aria-expanded="false">
+          <div><div class="proj-ind">Chemical Manufacturing</div><div class="proj-title">Kiri Industries — Operations &amp; Process Consulting</div></div>
+          <span class="proj-badge">Manufacturing</span>
+        </button>
+        <div class="proj-body"><div class="proj-inner">
+          <p>Consulting engagement with Kiri Industries on plant operations, process efficiency, and manufacturing systems design. On-ground assessment and recommendations across multiple production lines.</p>
+          <div class="proj-result"><span class="proj-result-ico">&#8593;</span><p>Measurable gains in production efficiency and quality output across Kiri's manufacturing operations.</p></div>
+        </div></div>
+      </div>
+      <div class="proj-card r" data-proj>
+        <button class="proj-btn" onclick="toggleProj(this)" aria-expanded="false">
+          <div><div class="proj-ind">Rubber · Tyres &amp; Tubes · &#8377;100Cr+ landscape</div><div class="proj-title">Rubber Industries — Techno-Commercial Engagements</div></div>
+          <span class="proj-badge">Multi-project</span>
+        </button>
+        <div class="proj-body"><div class="proj-inner">
+          <p>Sustained engagement across Gujarat's tyre and tube manufacturing sector — from plant optimisation to business development strategy and technology sourcing for mid-to-large manufacturers. Part of a portfolio spanning telecom, precision engineering, rubber, and silica over four decades.</p>
+          <div class="proj-result"><span class="proj-result-ico">&#8593;</span><p>Multiple outcomes across the rubber sector — improved plant efficiency, structured business channels, strengthened techno-commercial operations.</p></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="sec sec-light">
+  <div class="container-d">
+    <span class="s-tag r">The Team</span>
+    <h2 class="s-h2 r">Three specialists. One shared commitment.</h2>
+    <p class="s-lead r">We are from this ecosystem. We've built, operated, and restructured businesses across Gujarat's industrial landscape — and we bring that lived experience to every engagement.</p>
+    <div class="team-list">
+      <div class="team-card r">
+        <div class="team-top"><div class="team-av">MD</div><div><div class="team-name">Mukesh Desai</div><div class="team-role">Techno-Commercial Veteran</div></div></div>
+        <p class="team-bio">Four decades of hands-on experience delivering industrial projects — from &#8377;40 lakh startups to &#8377;200Cr+ enterprise engagements. Mukesh has worked across telecom, precision engineering, rubber manufacturing, and agro-industrial chemicals. His strength is the full techno-commercial cycle: identifying an opportunity, structuring it, and seeing it through to delivery.</p>
+        <div class="team-foot"><span class="team-note">Photo &amp; full bio coming soon</span><span class="li-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span></div>
+      </div>
+      <div class="team-card r">
+        <div class="team-top"><div class="team-av">MU</div><div><div class="team-name">Mustafa</div><div class="team-role">Material Scientist · PhD Chemistry</div></div></div>
+        <p class="team-bio">A material scientist with a PhD in Chemistry, Mustafa brings scientific rigour and practical industrial application together. He led the development of India's pioneering commercial green silica facility. His expertise in modifying chemical processes to reduce waste, create new byproducts, and improve production efficiency makes him a genuinely unusual asset.</p>
+        <div class="team-foot"><span class="team-note">Photo &amp; full bio coming soon</span><span class="li-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span></div>
+      </div>
+      <div class="team-card r">
+        <div class="team-top"><div class="team-av">AF</div><div><div class="team-name">Abhishek Fauzdar</div><div class="team-role">Industrial Systems Engineer</div></div></div>
+        <p class="team-bio">An industrial systems engineer with a Master's degree from Germany, Abhishek brings international engineering thinking to India's manufacturing sector. He has designed and optimised full-cycle operations — from procurement logistics to production systems, quality frameworks, and lean manufacturing — bridging best-in-class systems with MSME realities.</p>
+        <div class="team-foot"><span class="team-note">Photo &amp; full bio coming soon</span><span class="li-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sec sec-dark">
+  <div class="container-d">
+    <span class="s-tag r">Get In Touch</span>
+    <h2 class="s-h2 r">Tell us about your business.</h2>
+    <p class="s-lead r">Most conversations start with a phone call. Call or WhatsApp us directly — or fill the form and we'll call you back within 24 hours.</p>
+    <div class="contact-cols">
+      <div>
+        <a href="tel:+919924655322" class="cta-phone r">
+          <div class="cta-ph-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="cta-ph-lbl">Call or WhatsApp</div><div class="cta-ph-num">+91 99246 55322</div><div class="cta-ph-sub">Mon–Sat, 9am–7pm</div></div>
+          <span class="cta-ph-arr">&#8594;</span>
+        </a>
+        <div class="cta-email r">
+          <div class="cta-em-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="cta-em-lbl">Email</div><div class="cta-em-val">dndpconsultants@gmail.com</div></div>
+        </div>
+        <div class="cta-addr r">15 Saraswati Society, Vasna<br>Ahmedabad, Gujarat, India</div>
+      </div>
+      <div class="f-wrap r">
+        <div class="f-grp"><label class="f-lbl">Your name</label><input class="f-ctrl" type="text" placeholder="e.g. Rajeshbhai Patel"/></div>
+        <div class="f-grp"><label class="f-lbl">Business name &amp; location</label><input class="f-ctrl" type="text" placeholder="e.g. Patel Rubbers Pvt Ltd, Vatva"/></div>
+        <div class="f-grp">
+          <label class="f-lbl">What brings you to us?</label>
+          <select class="f-ctrl">
+            <option value="" disabled selected>Select closest to your situation</option>
+            <option>Setting up a new manufacturing business</option>
+            <option>Business is struggling — need a turnaround</option>
+            <option>Manufacturing process needs improvement</option>
+            <option>Looking to raise capital or restructure banking</option>
+            <option>Facing NPA / NCLT / DRT proceedings</option>
+            <option>M&amp;A — buying, selling or structuring a deal</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="f-grp"><label class="f-lbl">Tell us more</label><textarea class="f-ctrl" placeholder="A few lines about your situation — we'll read this before calling."></textarea></div>
+        <button class="f-submit" onclick="handleSubmit(event)">Send message — we'll call back within 24 hrs</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="foot-logo">DNDP Consultants</div>
+    <div class="foot-sub">Manufacturing excellence · Business turnaround · Gujarat</div>
+    <div class="foot-copy">+91 99246 55322 &nbsp;·&nbsp; dndpconsultants@gmail.com</div>
+  </div>
+  <div>
+    <div class="foot-copy">&copy; 2025 DNDP Consultants</div>
+    <div class="foot-copy">15 Saraswati Society, Vasna, Ahmedabad</div>
+  </div>
+</footer>
+
+<script>
+const ham=document.getElementById('ham'),drawer=document.getElementById('drawer');
+function closeDrawer(){ham.classList.remove('open');drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+ham.addEventListener('click',()=>{const o=drawer.classList.toggle('open');ham.classList.toggle('open',o);drawer.setAttribute('aria-hidden',String(!o));ham.setAttribute('aria-expanded',String(o));document.body.style.overflow=o?'hidden':'';});
+function toggleExp(btn){const card=btn.closest('[data-exp]'),opening=!card.classList.contains('open');document.querySelectorAll('[data-exp].open').forEach(c=>{c.classList.remove('open');c.querySelector('button').setAttribute('aria-expanded','false');});if(opening){card.classList.add('open');btn.setAttribute('aria-expanded','true');setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),50);}}
+function toggleProj(btn){const card=btn.closest('[data-proj]'),opening=!card.classList.contains('open');document.querySelectorAll('[data-proj].open').forEach(c=>{c.classList.remove('open');c.querySelector('button').setAttribute('aria-expanded','false');});if(opening){card.classList.add('open');btn.setAttribute('aria-expanded','true');setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),50);}}
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*60);obs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+function handleSubmit(e){const b=e.currentTarget;b.textContent='✓ Sent — we\'ll call you back shortly';b.style.background='#c8dff4';b.style.color='#0d1b3e';b.disabled=true;}
+</script>
+</body>
+</html>
